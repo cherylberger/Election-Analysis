@@ -17,35 +17,31 @@ To determine the total number of votes cast:
       for row in reader:
   '# Add to the total vote count
       total_votes = total_votes + 1
+      
 #### Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
+
     First create a new list for the county and a dictionary to define the total votes in each county.
      '# Create a county list and county votes dictionary.
         county_list = []
         county_votes_dict = {} 
-    From the county list, look for rows with matching county names.
+    Then from the county list, look for rows with matching county names.
     '# Extract the county name from each row. 
        county_name = row [0]
-     Define the output fields for the country with the highest total votes (largest_county) and the county with the highest voter turnout. 
+    Define the output fields for the country with the highest total votes (largest_county) and the county with the highest voter turnout. 
     '# 2: Track the largest county and county voter turnout.
         largest_county = ""
         county_turnout = 0
 #### Which county had the largest number of votes?
     '# 4a: Write an if statement that checks that the county does not match any existing county in the county list.
         if county_name not in county_list:
-
-     '# 4b: Add the existing county to the list of counties.
+    '# 4b: Add the existing county to the list of counties.
             county_list.append(county_name)
-
-      '# 4c: Begin tracking the county's vote count.
+    '# 4c: Begin tracking the county's vote count.
             county_votes_dict[county_name] = 0
-
-      '# 5: Add a vote to that county's vote count.
+     '# 5: Add a vote to that county's vote count.
             county_votes_dict[county_name] += 1
-    
-    
-   
-#### Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
       
+#### Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
  '# 6a: Write a for loop to get the county from the county dictionary.
     for row in reader:
   '# 6b: Retrieve the county vote count.
