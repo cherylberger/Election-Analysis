@@ -3,7 +3,7 @@ Module 3 - Python or PyPoll
 # PyPoll - Analysis of the Election Results using Python
 ## Project Overview
 ### Overview of Election Audit: Explain the purpose of this election audit analysis.
-The purpose of the analysis was to audit the election results and perform and additional analysis.  The data will be analyzed for to provide additional inforamtion on the voter turnout.  The analysis will provide a summary of the total vote count in each county and determine the county with the highest turnout.  In addition, the percentage of votes from each county as a percent of the total will be displayed.     
+The purpose of the analysis was to audit the election results and perform additional analysis.  The data will be analyzed to provide additional information on the voter turnout.  The analysis will provide a summary of the total vote count in each county and determine the county with the highest turnout.  In addition, the percentage of votes from each county as a percent of the total will be displayed.     
 ## Results
 
 ### Election-Audit Results: Using a bulleted list, address the following election outcomes. Use images or examples of your code as support where necessary.
@@ -15,15 +15,17 @@ To determine the total number of votes cast:
    Write a for statement to loop through the data to add votes as applicable
   '# For each row in the CSV file.
       for row in reader:
-   '# Add to the total vote count
+  '# Add to the total vote count
       total_votes = total_votes + 1
 #### Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
-    
+    First create a new list for the county and a dictionary to define the total votes in each county.
      '# Create a county list and county votes dictionary.
-        county_list = ["Jefferson", "Denver", "Arapahoe"]
+        county_list = []
         county_votes_dict = {} 
+    From the county list, look for rows with matching county names.
     '# Extract the county name from each row. 
        county_name = row [0]
+     Define the output fields for the country with the highest total votes (largest_county) and the county with the highest voter turnout. 
     '# 2: Track the largest county and county voter turnout.
         largest_county = ""
         county_turnout = 0
@@ -98,3 +100,9 @@ To determine the total number of votes cast:
 
 ## Summary
 ### Election-Audit Summary: In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
+Summarize what code is easily translated to other elections.  
+  1) Use of lists and dictionaires, 
+  2) use of conditional statements to append the lists of candidate and county names allows for modifications to the file beyond the current structure of the data frame (more counties and more candidates).
+  3) Formulas for total vote count and percentage varaibles are defined by indexing through the rows of data to calculate rather than defining a specific range.  All vote counters are programmed to start at zero.
+The script could be modifed to analyze a different data file by changing the directory and file name indicated in the with open statements
+The script could be modified to 
