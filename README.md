@@ -1,6 +1,6 @@
 # Election-Analysis
 Module 3 - Python or PyPoll
-# Project Title
+# PyPoll - Analysis of the Election Results using Python
 ## Project Overview
 ### Overview of Election Audit: Explain the purpose of this election audit analysis.
 The purpose of the analysis was to audit the election results and perform and additional analysis.  The data will be analyzed for to provide additional inforamtion on the voter turnout.  The analysis will provide a summary of the total vote count in each county and determine the county with the highest turnout.  In addition, the percentage of votes from each county as a percent of the total will be displayed.     
