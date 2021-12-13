@@ -103,24 +103,24 @@ The purpose of the analysis was to audit the congressional election results and 
   
  *The candidate results can be analyzed using similar code except that the variable is candidate rather than county for this analysis:* 
  
- '# Save the final candidate vote count to the text file.
+    # Save the final candidate vote count to the text file.
     for candidate_name in candidate_votes:
-  '# Retrieve vote count and percentage
+    # Retrieve vote count and percentage
         votes = candidate_votes.get(candidate_name)
         vote_percentage = float(votes) / float(total_votes) * 100
         candidate_results = (
             f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
-   '# Print each candidate's voter count and percentage to the
+    # Print each candidate's voter count and percentage to the
         # terminal.
         print(candidate_results)
-   '#  Save the candidate results to our text file
+    #  Save the candidate results to our text file
         txt_file.write(candidate_results)
-   '# Determine winning vote count, winning percentage, and candidate.
+    # Determine winning vote count, winning percentage, and candidate.
         if (votes > winning_count) and (vote_percentage > winning_percentage):
             winning_count = votes
             winning_candidate = candidate_name
             winning_percentage = vote_percentage
-    '# Print the winning candidate (to terminal)
+     # Print the winning candidate (to terminal)
         winning_candidate_summary = (
           f"-------------------------\n"
           f"Winner: {winning_candidate}\n"
@@ -136,6 +136,6 @@ The purpose of the analysis was to audit the congressional election results and 
 ## Summary
 The election commission may find the following advantages to the use of this script when analyzing election outcomes:  
   1) Use of lists and dictionaires rather than pseuocode makes the PyPoll_Challenge_CB.py script more easily modified to other datafiles.  
-  2) Use of conditional statements to append the lists of candidate and county names allows for modifications to the election_results.csv. beyond the current structure of the data frame such as adding additional counties and/or other candidates.
+  2) Use of conditional statements to append the lists of candidate and county names allows for modifications to the election_results.csv. beyond the current structure of the    data frame such as adding additional counties and/or other candidates.
   3) Formulas for total vote count and percentage varaibles are defined by indexing through the rows of data to calculate rather than defining a specific range.  All vote counters are programmed to start at zero.
-tAlthough some cleaning of the data file will be needed, and the analyst must be aware of available information; The script could be modifed to analyze a different data file by changing the directory and file name indicated in the with open statements.  In addition, the script could be modified to analyze the number of votes for each candidate by county to determine if the outcome in the largest country predicted the overall election outcome.
+Although some cleaning of the data file will be needed, and the analyst must be aware of available information; The script could be modifed to analyze a different data file by changing the directory and file name indicated in the with open statements.  In addition, the script could be modified to analyze the number of votes for each candidate by county to determine if the outcome in the largest country predicted the overall election outcome.
