@@ -34,12 +34,15 @@ The purpose of the analysis was to audit the congressional election results and 
     **Denver 82.8% 306,055**
     ***Arapahoe 6.7% 24,801**
 
-       # 2: Track the largest county and county voter turnout.
-      Winning_county = ""
-      Winning_county_turnout = 0
-      Winning_county_percentage = 0      
+         
 
 *To determine the number of votes in each county and the percentatge of the total, we must calculate the number of votes cast in each country and the percentage of the total votes. First, identify the arrays needed to perform the calculations* 
+      # 2: Track the largest county and county voter turnout.
+        Winning_county = ""
+        Winning_county_turnout = 0
+        Winning_county_percentage = 0    
+
+*Then, loop through the data to retrieve the vote count for each county and calculate the percent of votes in each county by dividing by the total.  Set the values to display with the correct data formats and print the results.*
 
      # 6a: Write a for loop to get the county from the county dictionary.
         for county_name in county_votes:
@@ -138,4 +141,4 @@ The election commission may find the following advantages to the use of this scr
   1) Use of lists and dictionaires rather than pseuocode makes the PyPoll_Challenge_CB.py script more easily modified to other datafiles.  
   2) Use of conditional statements to append the lists of candidate and county names allows for modifications to the election_results.csv. beyond the current structure of the    data frame such as adding additional counties and/or other candidates.
   3) Formulas for total vote count and percentage varaibles are defined by indexing through the rows of data to calculate rather than defining a specific range.  All vote counters are programmed to start at zero.
-Although some cleaning of the data file will be needed, and the analyst must be aware of available information; The script could be modifed to analyze a different data file by changing the directory and file name indicated in the with open statements.  In addition, the script could be modified to analyze the number of votes for each candidate by county to determine if the outcome in the largest country predicted the overall election outcome.
+  4) Although some cleaning of the data file will be needed, and the analyst must be aware of available information; The script could be modifed to analyze a different data file by changing the directory and file name indicated in the with open statements.  In addition, the script could be modified to analyze the number of votes for each candidate by county to determine if the outcome in the largest country predicted the overall election outcome.
