@@ -1,36 +1,56 @@
-# Election-Analysis
-Module 3 - Python or PyPoll
-# PyPoll - Analysis of the Election Results using Python
+
+
+# **PyPoll - Analysis of the Election Results using Python**
+  Module 3 - Python or PyPoll
 ## Project Overview
-### Overview of Election Audit: Explain the purpose of this election audit analysis.
-The purpose of the analysis was to audit the election results and perform additional analysis.  The data will be analyzed to provide additional information on the voter turnout.  The analysis will provide a summary of the total vote count in each county and determine the county with the highest turnout.  In addition, the percentage of votes from each county as a percent of the total will be displayed.     
+### Overview of Election Analysis
+The purpose of the analysis was to audit the congressional election results and perform additional analysis for the Colorado election comission.  The data for analysis can be found in    The data will be analyzed to provide additional information on the voter turnout by county.  The analysis will provide a summary of the total vote count in each county and determine the county with the highest turnout.  In addition, the percentage of votes from each county as a percent of the total will be displayed.     
 ## Results
 
-### Election-Audit Results: Using a bulleted list, address the following election outcomes. Use images or examples of your code as support where necessary.
+### *Election-Audit Results: Using a bulleted list, address the following election outcomes. Use images or examples of your code as support where necessary.*
 
 #### How many votes were cast in this congressional election?
-To determine the total number of votes cast: 
-  '# Initialize a total vote counter.
-    total_votes = 0
-   Write a for statement to loop through the data to add votes as applicable
-  '# For each row in the CSV file.
-      for row in reader:
-  '# Add to the total vote count
-      total_votes = total_votes + 1
+  There were 369,711 votes cast in the congressional election. 
+  First, set the code to create a vote counter variable and set the counter to zero (0) as displayed below: 
+  
+      # Initialize a total vote counter.
+      total_votes = 0
       
-#### Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
+  Next, open the datafile (.csv) and covert it into a list of dictionaries called "election_data" and read the header row.
+  
+      # Read the csv and convert it into a list of dictionaries
+      with open(file_to_load) as election_data:
+        reader = csv.reader(election_data)
+           # Read the header
+        header = next(reader)
+        
+  Then, index through the rows in the file and add 1 to the vote counter for each row in the file to calculate the total votes.
+  
+        # For each row in the CSV file.
+        for row in reader:
+            # Add to the total vote count
+        total_votes = total_votes + 1
 
-    First create a new list for the county and a dictionary to define the total votes in each county.
-     '# Create a county list and county votes dictionary.
-        county_list = []
-        county_votes_dict = {} 
-    Then from the county list, look for rows with matching county names.
-    '# Extract the county name from each row. 
-       county_name = row [0]
-    Define the output fields for the country with the highest total votes (largest_county) and the county with the highest voter turnout. 
-    '# 2: Track the largest county and county voter turnout.
-        largest_county = ""
-        county_turnout = 0
+#### Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
+To determine the number of votes in each county and the percentatge of the total, we must calculate the number of votes cast in each country and the percentage of the total votes. First, identify the arrays needed to perform the calculations 
+    # 2: Track the largest county and county voter turnout.
+      Winning_county = ""
+      Winning_county_turnout = 0
+      Winning_county_percentage = 0
+To count the votes in each county, define the index for the name of the country (column B) in the datafile
+        # 3: Extract the county name from each row. 
+          county_name = row[1] 
+        # 4a: Write an if statement that checks that the county does not match any existing county in the county list.
+        if county_name not in county_options:
+            # 4b: Add the existing county to the list of counties.
+            county_options.append(county_name)
+
+            # 4c: Begin tracking the county's vote count.
+            county_votes[county_name] = 0
+        
+        # 5: Add a vote to that county's vote count.
+        county_votes[county_name] += 1 
+
 #### Which county had the largest number of votes?
     '# 4a: Write an if statement that checks that the county does not match any existing county in the county list.
         if county_name not in county_list:
@@ -57,27 +77,30 @@ To determine the total number of votes cast:
 
 
 #### Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+The results of the election are displayed in the terminal and on the .txt file
+    Winner: Diana DeGette
+    Winning Vote Count: 272,892
+    Winning Percentage: 73.8%
+ 
+ The candidate results can be analyzed using similar code except that the variable is candidate rather than county for this analysis: 
+ 
  '# Save the final candidate vote count to the text file.
     for candidate_name in candidate_votes:
-
   '# Retrieve vote count and percentage
         votes = candidate_votes.get(candidate_name)
         vote_percentage = float(votes) / float(total_votes) * 100
         candidate_results = (
             f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
-
    '# Print each candidate's voter count and percentage to the
         # terminal.
         print(candidate_results)
    '#  Save the candidate results to our text file.
         txt_file.write(candidate_results)
-
    '# Determine winning vote count, winning percentage, and candidate.
         if (votes > winning_count) and (vote_percentage > winning_percentage):
             winning_count = votes
             winning_candidate = candidate_name
             winning_percentage = vote_percentage
-
     '# Print the winning candidate (to terminal)
         winning_candidate_summary = (
           f"-------------------------\n"
@@ -86,7 +109,6 @@ To determine the total number of votes cast:
           f"Winning Percentage: {winning_percentage:.1f}%\n"
           f"-------------------------\n")
             print(winning_candidate_summary)
-
     '# Save the winning candidate's name to the text file
         txt_file.write(winning_candidate_summary)
 
