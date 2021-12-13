@@ -57,9 +57,12 @@ The purpose of the analysis was to audit the congressional election results and 
 **Denver had the largest number of votes, 306,055** 
 
 *To count the votes in each county, define the index for the name of the country (column B) in the datafile*
+
         # 3: Extract the county name from each row. 
           county_name = row[1]
- *Use conditionals to count votes for each county named in the data file, add votes by an increment of "1".* 
+          
+ *Use conditionals to count votes for each county named in the data file, add votes by an increment of "1".*
+ 
         # 4a: Write an if statement that checks that the county does not match any existing county in the county list.
         if county_name not in county_options:
             # 4b: Add the existing county to the list of counties.
