@@ -114,8 +114,9 @@ with open(file_to_save, "w") as txt_file:
     county_results = (
         f"\n County Results\n"
         f"------------------------------\n"
-        f"Largest Country Turnout: {cvotes:,}\n"
-        f"-------------------------------\n\n")
+        f"Largest Country Turnout: {"Winning_county"}\n"
+        f"-------------------------------\n\n" 
+        )
 
     # 8: Save the county with the largest turnout to a text file.
 with open(file_to_save, "w") as txt_file:
@@ -142,24 +143,24 @@ with open(file_to_save, "w") as txt_file:
             winning_percentage = vote_percentage
 
     # Print the winning candidate (to terminal)
-winning_candidate_summary = (
-    f"-------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_percentage:.1f}%\n"
-    f"-------------------------\n")
-print(winning_candidate_summary)
+    winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
+    print(winning_candidate_summary)
 
-    # Print the winning county (to terminal)
-winning_county_summary = (
-    f"Winning County: {Winning_county}\n"
-    f"Winning County Turnout: {Winning_county_turnout:,}\n"
-    f"Winning County Percentage: {Winning_county_percentage:.1f}%\n"
-    f"--------------------------\n")
-print(winning_county_summary)
+        # Print the winning county (to terminal)
+    winning_county_summary = (
+        f"Winning County: {Winning_county}\n"
+        f"Winning County Turnout: {Winning_county_turnout:,}\n"
+        f"Winning County Percentage: {Winning_county_percentage:.1f}%\n"
+        f"--------------------------\n")
+    print(winning_county_summary)
 
-    # Save the winning candidate's name to the text file
-txt_file.write(winning_candidate_summary)
+        # Save the winning candidate's name to the text file
+    txt_file.write(winning_candidate)
 
-    # Save the winning county's name to the text file
-txt_file.write(winning_county_summary)
+        # Save the winning county's name to the text file
+    txt_file.write(Winning_county)
